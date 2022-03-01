@@ -30,14 +30,17 @@ const Expense = (props) => {
           sendPropsSelected={filteredYear}
           sendPropsToExpenseFilter={getSelectedYear}
         />
-        {expenseItemList.map((expense) => (
-          <ExpensesItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {/* outputting conditinal content */}
+        {expenseItemList.length === 0 ? 
+          <p style={{color: "white"}}>No item found.</p> 
+          : expenseItemList.map((expense) => (
+            <ExpensesItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))}
       </Card>
     </div>
   );
