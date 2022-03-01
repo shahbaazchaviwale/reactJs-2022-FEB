@@ -25,3 +25,6 @@
     text-align: right;
     margin: 10px auto;
   }
+  .add-expense__action {
+    margin: 10px auto;
+  }
