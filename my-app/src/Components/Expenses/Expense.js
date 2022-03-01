@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Card from "../UI/Card";
 import "./Expense.css";
-import ExpensesItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpenseList from "./ExpensesList";
 
 const Expense = (props) => {
   const [filteredYear, setselectedYear] = useState("Select Year");
@@ -30,17 +30,16 @@ const Expense = (props) => {
           sendPropsSelected={filteredYear}
           sendPropsToExpenseFilter={getSelectedYear}
         />
-        {/* outputting conditinal content */}
-        {expenseItemList.length === 0 ? 
-          <p style={{color: "white"}}>No item found.</p> 
-          : expenseItemList.map((expense) => (
-            <ExpensesItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))}
+        {/*****************************************
+         * outputting conditinal content in this  way as well
+         *  {
+         *      expenseItemList.length === 0 ? 
+                  <p style={{color: "white"}}>No item found.</p> 
+                  :       
+                <ExpenseList items={expenseItemList}/>
+            }
+          *****************************************/}
+        <ExpenseList item={expenseItemList}/>
       </Card>
     </div>
   );
