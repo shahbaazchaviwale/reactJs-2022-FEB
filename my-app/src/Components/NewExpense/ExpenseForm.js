@@ -50,9 +50,11 @@ const ExpenseForm = (props) => {
     // "enteredTitle", "enteredAmount", "enteredDate" taken from above state values
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
+    console.log('expenseData >>>', expenseData);
+
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
@@ -117,7 +119,7 @@ const ExpenseForm = (props) => {
       ) : (
         <div className="add-expense__action">
           <button type="button" onClick={showFormVisibility}>
-            + Add Expense
+            + Add New Expense
           </button>
         </div>
       )}
